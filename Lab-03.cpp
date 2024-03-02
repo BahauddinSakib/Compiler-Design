@@ -19,7 +19,8 @@ bool isValid(string str)
     return true;
 }
 
-int main() {
+int main()
+   {
     ifstream inputFile("input.txt");
 
    // if (!inputFile.is_open()) {
@@ -81,8 +82,17 @@ int main() {
 
             for (char ch : givenInput)
             {
-                if (ch == '@' || ch == '#' || ch == '$' || ch == ',' || ch==';') {
+                if (ch == '@' || ch == '#' || ch == '$' )
+                {
                     cout << "There is a special character in the input" << endl;
+                    break;
+                }
+            }
+             for (char ch : givenInput)
+            {
+                if (ch == ',' || ch==';'|| ch=='.')
+                {
+                    cout << "There is a Symbol in the input" << endl;
                     break;
                 }
             }
@@ -121,14 +131,24 @@ int main() {
             }
 
             for (char ch : givenInput)
+            {
+                if (ch == '@' || ch == '#' || ch == '$' )
                 {
-                if (ch == '@' || ch == '#' || ch == '$' || ch == ',' || ch == ';') {
                     cout << "There is a special character in the input" << endl;
                     break;
                 }
             }
+
+            for (char ch : givenInput)
+            {
+                if (ch == ',' || ch==';'|| ch=='.')
+                {
+                    cout << "There is a Symbol in the input" << endl;
+                    break;
+                }
         }
     }
+        }
 
     return 0;
 }
