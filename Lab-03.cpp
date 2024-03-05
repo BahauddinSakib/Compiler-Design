@@ -1,6 +1,8 @@
-#include <iostream>
+#include<bits/stdc++.h>
+/*#include <iostream>
 #include <fstream>
 #include <string>
+*/
 
 using namespace std;
 
@@ -20,13 +22,13 @@ bool isValid(string str)
 }
 
 int main()
-   {
+{
     ifstream inputFile("input.txt");
 
-   // if (!inputFile.is_open()) {
-        //cout << "Error opening file: input.txt" << endl;
-        //return 1;
-   // }
+    if (!inputFile.is_open()) {
+        cout << "Error opening file: input.txt" << endl;
+        return 1;
+    }
 
     string givenInput;
     cout << "Enter your input string: ";
@@ -36,7 +38,8 @@ int main()
     bool found = false;
 
     while (getline(inputFile, line)) {
-        if (line.find(givenInput) < line.length()) {
+        if (line.find(givenInput) < line.length())
+        {
             found = true;
             break;
         }
@@ -44,54 +47,50 @@ int main()
 
     inputFile.close();
 
-    if (found) {
+    if (found)
+        {
         cout << "Keyword found in the file." << endl;
 
-        if (isValid(givenInput))
-        {
-            cout<< "1" << endl;
-            cout << "Invalid identifier" << endl;
-
+        if (isValid(givenInput)) {
+            cout << "1" << endl;
+            cout << "Valid identifier" << endl;
         }
         else
-            {
+        {
             cout << "0" << endl;
-            cout << "Valid identifier" << endl;
-
+            cout << "Invalid identifier" << endl;
 
             bool hasNumber = false;
             for (char ch : givenInput)
             {
-                if (isdigit(ch)) {
+                if (isdigit(ch))
+                {
                     hasNumber = true;
                     cout << "Input contains a number" << endl;
                     break;
                 }
             }
 
-
-            for (char ch : givenInput)
-            {
-                if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch=='%')
+            for (char ch : givenInput) {
+                if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%')
                 {
                     cout << "There is an Arithmetic Operator in the input" << endl;
                     break;
                 }
             }
 
-
             for (char ch : givenInput)
             {
-                if (ch == '@' || ch == '#' || ch == '$' )
+                if (ch == '@' || ch == '#' || ch == '$')
                 {
                     cout << "There is a special character in the input" << endl;
                     break;
                 }
             }
-             for (char ch : givenInput)
-            {
-                if (ch == ',' || ch==';'|| ch=='.')
+
+            for (char ch : givenInput)
                 {
+                if (ch == ',' || ch == ';' || ch == '.') {
                     cout << "There is a Symbol in the input" << endl;
                     break;
                 }
@@ -100,14 +99,12 @@ int main()
     }
     else
         {
-         cout << "Keyword not found in the file." << endl;
-
+        cout << "Keyword not found in the file." << endl;
 
         if (isValid(givenInput))
         {
             cout << "1" << endl;
             cout << "Valid identifier" << endl;
-
         } else {
             cout << "0" << endl;
             cout << "Invalid identifier" << endl;
@@ -123,8 +120,8 @@ int main()
             }
 
             for (char ch : givenInput)
-                {
-                if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch=='%') {
+            {
+                if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%') {
                     cout << "There is an Arithmetic Operator in the input" << endl;
                     break;
                 }
@@ -132,8 +129,7 @@ int main()
 
             for (char ch : givenInput)
             {
-                if (ch == '@' || ch == '#' || ch == '$' )
-                {
+                if (ch == '@' || ch == '#' || ch == '$') {
                     cout << "There is a special character in the input" << endl;
                     break;
                 }
@@ -141,14 +137,14 @@ int main()
 
             for (char ch : givenInput)
             {
-                if (ch == ',' || ch==';'|| ch=='.')
-                {
+                if (ch == ',' || ch == ';' || ch == '.') {
                     cout << "There is a Symbol in the input" << endl;
                     break;
                 }
+            }
         }
     }
-        }
 
     return 0;
 }
+
