@@ -1,0 +1,1 @@
+cin cout cree clog iostream iiomaip fstream cmath cstdlib c vector list map ctime chrono static_cast dynamic_cast reinterpret_cast const_cast new delete new delete stdexcept cstdlib thread endl end
