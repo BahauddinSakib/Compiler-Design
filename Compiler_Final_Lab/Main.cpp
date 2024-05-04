@@ -40,7 +40,7 @@ bool isValidIdentifier(const string& str, string& reason)
 
     if (!(isalpha(str[0]) || str[0] == '_'))
     {
-        reason = "Must start with a letter or underscore";
+        reason = "Contains Invalid character";
         return false;
     }
 
@@ -48,7 +48,7 @@ bool isValidIdentifier(const string& str, string& reason)
     {
         if (!(isalnum(ch) || ch == '_'))
         {
-            reason = "Contains invalid character";
+            reason = "Must start with a letter or underscore";
             return false;
         }
     }
@@ -180,29 +180,29 @@ bool isHeader(const string& input)
 }
 ///Namespace check
 
-bool isUsing(const string& input)
+bool isUsing(string input)
 {
     ifstream file("Namespace.txt");
     if (!file.is_open())
     {
-        cout << "Error opening Namespace file" << endl;
+        cout << "Error opening file" << endl;
         return false;
     }
 
     string line;
-    while (getline(file, line))
+    do
     {
-
-        if (line.find(input) != string::npos)
+        if (line.find(input) < line.length())
         {
             file.close();
             return true;
         }
-    }
+    } while (getline(file, line));
 
     file.close();
     return false;
 }
+
 ///Constant check
 
 bool isConstant(const string& input)
