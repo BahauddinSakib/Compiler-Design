@@ -43,8 +43,7 @@ operator
 template	
 friend	
 private
-class
-this	
+class	
 inline	
 public	
 throw	
